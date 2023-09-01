@@ -1,4 +1,3 @@
-
 header {
     border-radius: 10px;
     color: white;
@@ -10,30 +9,30 @@ header {
 }
 
 li {
-    list-style: none; 
+    list-style: none;
 }
 
-.headerlink{
-        text-decoration: none;
-        color: #dadada;
-        font-size: 17px;
-    }
-    
-    a{
-        text-decoration: none;
-    }
+.headerlink {
+    text-decoration: none;
+    color: #dadada;
+    font-size: 17px;
+}
 
-    .record>form{
-        width: 90%;
-    }
+a {
+    text-decoration: none;
+}
 
-#ul{
+.record>form {
+    width: 90%;
+}
+
+#ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#update{
+#update {
     margin-left: 4%;
     margin-top: 10px;
     border: none;
@@ -43,7 +42,7 @@ li {
     background-color: green;
 }
 
-#delete{
+#delete {
     position: absolute;
     bottom: 2.5%;
     right: 5%;
@@ -53,4 +52,3 @@ li {
     padding: 5px 10px;
     background-color: rgb(212, 51, 23);
 }
-

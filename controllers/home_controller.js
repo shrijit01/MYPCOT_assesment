@@ -1,4 +1,4 @@
-const Record = require('../models/record'); // Import the Record model
+const Record = require('../models/record'); 
 
 module.exports.home = async function(req, res) {
     try {
@@ -8,15 +8,15 @@ module.exports.home = async function(req, res) {
             return res.render("index", {
                 title: "Home",
                 records: userRecords,
-                user: req.user // Pass the user object to the template
+                user: req.user 
             });
         }
 
         // If user is not authenticated, handle accordingly
-        return res.render("index", {
-            title: "Home",
-            records: [] // Empty array when user is not authenticated
+        return res.render("index",{
+            title:"Home"
         });
+        
     } catch (error) {
         console.error(error, 'error in fetching records');
         return res.status(500).send('Internal server error');

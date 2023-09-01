@@ -113,3 +113,13 @@ a {
 #record-name {
     text-decoration: none;
 }
+
+
+#deleteAll {
+    margin-top: 10px;
+    margin-left: 52%;
+    padding: 8px 10px;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: #021244;
+}

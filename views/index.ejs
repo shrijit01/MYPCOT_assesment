@@ -15,10 +15,7 @@
                 <label for="nameSearch">Search by Name:</label>
                 <input type="text" id="nameSearchInput" placeholder="Enter name">
             </div>
-            
         </div>
-        
-        
     <%}%> 
     <!-- CREATE RECORD PAGE  -->
     <% if(locals.user ){%>
@@ -28,14 +25,10 @@
             </div>
         </a>
     
-        <form action="/records/delete" method="POST">
-            <button type="submit" id="bulkDeleteButton">Bulk Delete</button>
             <div class="record-container">
                 <% records.forEach(function(record){%>
                     <div class="record">
                         <ul>
-                            <input type="hidden" name="recordIds" value="">
-                            <input type="checkbox" name="recordIds" value="<%= record._id %>" required>
                             <a id="record-name" href="/records/record/<%= record._id %>"><h2>Name:- <%= record.name %></h2></a>
                             <p>Description:- <%= record.description %></p>
                             <p>Category:- <%= record.category %></p>
@@ -43,8 +36,7 @@
                         </ul>
                     </div>
                 <%})%>
-            </div>
-        </form>
+
     <%}else{%>
         <h1 class="signup">Sign up <a href="/users/sign-up">Here</a></h1>
     <%}%>

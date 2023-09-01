@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-/* PROJECT SCHEMA */
+/* record SCHEMA */
 const recordSchema = new mongoose.Schema({
     name:{
         type:String,

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     /* padding: 0; */
     box-sizing: border-box;
@@ -15,7 +15,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 350px;
     padding: 20px;
     background-color: #f7f7f7;
@@ -93,20 +93,20 @@ header {
 }
 
 li {
-    list-style: none; 
+    list-style: none;
 }
 
-.headerlink{
-        text-decoration: none;
-        color: #dadada;
-        font-size: 17px;
-    }
-    
-    a{
-        text-decoration: none;
-    }
+.headerlink {
+    text-decoration: none;
+    color: #dadada;
+    font-size: 17px;
+}
 
-#ul{
+a {
+    text-decoration: none;
+}
+
+#ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+// const { isAuthenticated } = require('./auth.controller')
 /* THIS CONTROLLER WILL HANDLE SIGN IN PAGE */
 module.exports.signIn = async function(req,res){
     return res.render("signin",{
@@ -52,7 +53,7 @@ module.exports.createSession = async function(req, res) {
             return res.status(400).send('User not found');
         }
 
-        // Compare the provided password with the stored password
+        // Comparing the provided password with the stored password
         if (req.body.password !== user.password) {
             // Incorrect password
             return res.status(400).send('Incorrect password');

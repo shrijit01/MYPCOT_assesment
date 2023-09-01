@@ -10,6 +10,6 @@ router.post('/create', passport.checkAuthentication, recordsController.create);
 router.get('/record/:id', passport.checkAuthentication, recordsController.recordData);
 router.post('/update/:id', passport.checkAuthentication, recordsController.updateRecord);
 router.get('/delete/:id', recordsController.deleteRecord);
-router.post('/delete',recordsController.bulkDelete);
+router.get('/delete',recordsController.bulkDelete);
 
 module.exports = router;

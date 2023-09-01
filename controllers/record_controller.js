@@ -2,7 +2,8 @@ const Record = require('../models/record');
 const User = require('../models/user');
 const mongoose = require('mongoose');
 
-module.exports.show = async function(req, res) {
+
+module.exports.show = async function (req, res) {
     try {
         return res.render("createRecord", {
             title: "create Record",
@@ -13,10 +14,11 @@ module.exports.show = async function(req, res) {
     }
 };
 
-module.exports.recordData = async function(req, res) {
+
+module.exports.recordData = async function (req, res) {
     try {
-        const recordId = req.params.id; 
-        const foundRecord = await Record.findById(recordId); 
+        const recordId = req.params.id;
+        const foundRecord = await Record.findById(recordId);
 
         if (!foundRecord) {
             return res.status(404).send('Record not found');
@@ -24,7 +26,7 @@ module.exports.recordData = async function(req, res) {
 
         return res.render("showRecord", {
             title: "show Record",
-            record: foundRecord // Pass the found record to the EJS template
+            record: foundRecord 
         });
     } catch (error) {
         console.error(error, 'error in fetching record');
@@ -33,7 +35,8 @@ module.exports.recordData = async function(req, res) {
 };
 
 
-module.exports.create = async function(req, res) {
+
+module.exports.create = async function (req, res) {
     try {
         let createdRecord = await Record.create({
             name: req.body.name,
@@ -67,11 +70,11 @@ module.exports.create = async function(req, res) {
 
 module.exports.updateRecord = async function (req, res) {
     try {
-        const recordId = req.params.id; 
-        console.log("recordId",recordId);
+        const recordId = req.params.id;
+        console.log("recordId", recordId);
         // Find the record by ID
         const recordToUpdate = await Record.findById(recordId);
-        console.log("recordToUpdate",recordToUpdate);
+        console.log("recordToUpdate", recordToUpdate);
 
         if (!recordToUpdate) {
             // If the record doesn't exist, return an error
@@ -82,7 +85,7 @@ module.exports.updateRecord = async function (req, res) {
         recordToUpdate.name = req.body.name;
         recordToUpdate.description = req.body.description;
 
-        // Save the updated record
+        // Save the updated record bcz we have changed
         await recordToUpdate.save();
 
         // Redirect back to the record details 
@@ -97,7 +100,7 @@ module.exports.deleteRecord = async function (req, res) {
     try {
         const recordId = req.params.id;
 
-        // Use Mongoose to find and delete the record by ID
+        // found and delete the record by ID
         const deletedRecord = await Record.findByIdAndRemove(recordId);
 
         if (!deletedRecord) {
@@ -121,23 +124,20 @@ module.exports.deleteRecord = async function (req, res) {
 
 
 module.exports.bulkDelete = async (req, res) => {
-    const { recordIds } = req.body;
-    console.log(recordIds);
-    
     try {
-                // Assuming `recordIds` is an array of strings
-        const objectIds =  recordIds.map(id => mongoose.Types.ObjectId(id));
+        // if user is not authenticated
+        if (!req.isAuthenticated()) {
+            return res.redirect('/users/sign-in'); // Redirect to the sign-in page if not authenticated
+        }
 
-        // Now you can use `objectIds` in the delete operation
-        const result = await Record.deleteMany({ _id: { $in: objectIds } });
-        console.log("objectIds",objectIds);
-        // Now you can use `objectIds` in the delete operation
-        console.log("result",result); // Log the result for debugging
-    
-        // Redirect back to the main page
+        // Get the currently logged-in user's ID
+        const userId = req.user._id;
+        // Delete all records for the user
+        let data = await Record.deleteMany({ user: userId });
+        // Redirect back to the main page or any other desired page
         return res.redirect('/');
     } catch (error) {
-        console.error(error);
-        return res.status(500).send('Error deleting records: ' + error.message);
+        console.error('Error deleting user records:', error);
+        return res.status(500).send('Error deleting user records');
     }
 }

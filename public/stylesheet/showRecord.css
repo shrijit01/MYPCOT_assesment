@@ -1,0 +1,56 @@
+
+header {
+    border-radius: 10px;
+    color: white;
+    padding: 25px 0;
+    margin: 10px;
+    height: 80px;
+    text-align: center;
+    background-color: #021244;
+}
+
+li {
+    list-style: none; 
+}
+
+.headerlink{
+        text-decoration: none;
+        color: #dadada;
+        font-size: 17px;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+
+    .record>form{
+        width: 90%;
+    }
+
+#ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#update{
+    margin-left: 4%;
+    margin-top: 10px;
+    border: none;
+    color: #dadada;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: green;
+}
+
+#delete{
+    position: absolute;
+    bottom: 2.5%;
+    right: 5%;
+    border: none;
+    color: #dadada;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: rgb(212, 51, 23);
+}
+

@@ -1,0 +1,33 @@
+<!-- <link rel="stylesheet" href="/stylesheet/createRecord.css"> -->
+<!-- <link rel="stylesheet" href="/stylesheet/index.css"> -->
+<link rel="stylesheet" href="/stylesheet/showRecord.css">
+
+<div class="record-container">
+    <h2>Record Details</h2>
+    <div class="record">
+        <form action="/records/update/<%= record.id %>" method="POST">
+            <ul>
+                <li>
+                    <label for="name">Name:</label>
+                    <input style="width: 30%;" type="text" id="name" name="name" value="<%= record.name %>">
+                </li>
+                <li>
+                    <label for="description">description:</label>
+                    <input style="width: 30%;" type="text" id="description" name="description" value="<%= record.description %>">
+                </li>
+                <br>
+                <li>
+                    <label for="category">Category:</label>
+                    <p><%= record.category %></p>
+                </li>
+                <br>
+                <li>
+                    <label for="description">Status:</label>
+                    <p><%= record.status %></p>
+                </li>
+            </ul>
+            <button id="update" type="submit">Update</button>
+        </form>
+        <a id="delete" href="/records/delete/<%= record.id %>">Delete</a>
+    </div>
+</div>

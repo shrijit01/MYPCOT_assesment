@@ -1,0 +1,34 @@
+    <link rel="stylesheet" href="/stylesheet/createRecord.css">
+
+    <div class="container">
+        <h1>Create Record </h1>
+        <form action="/records/create" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter description"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">Select category</option>
+                    <option value="product">Product</option>
+                    <option value="employees">Employees</option>
+                    <option value="projects">Projects</option>
+                </select>
+            </div>
+            <div class="form-group toggle-group">
+                <label class="toggle-label">Active:</label>
+                <input type="radio" id="active" name="status" value="active" class="toggle-input" required>
+            </div>
+            <div class="form-group toggle-group">
+                <label class="toggle-label">In-Active:</label>
+                <input type="radio" id="inactive" name="status" value="inactive" class="toggle-input" required>
+            </div>
+            <button type="submit" class="btn">Create</button>
+        </form>
+    </div>

@@ -1,0 +1,25 @@
+<header id="nav">
+    <ul id="ul">
+        <%if(locals.user){%>
+            <li>
+                <a class="headerlink" href="/">Home</a>
+            </li>
+            <li>
+                <a class="headerlink" href="/"><%= user.name %></a>
+            </li>
+            <li>
+                <a class="headerlink" href="/users/sign-out">Sign out</a>
+            </li>
+        <%}else{%>
+            <li>
+                <a class="headerlink" href="/">Home</a>
+            </li>
+            <li>
+                <a class="headerlink" href="/users/sign-in">Sign in</a>
+            </li>
+            <li>
+                <a class="headerlink" href="/users/sign-up">Sign up</a>
+            </li>
+        <%}%>
+    </ul>
+</header>

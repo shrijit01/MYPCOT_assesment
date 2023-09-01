@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/stylesheet/index.css">
+
+    <% if(locals.user && user.records.length > 0 ){%>
+        <div id="filters-container">
+            <div class="filter-container">
+                    <label for="statusFilter">Filter by Status:</label>
+                    <select id="statusFilter">
+                        <option value="">All</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+            </div>
+                
+            <div class="search-container">
+                <label for="nameSearch">Search by Name:</label>
+                <input type="text" id="nameSearchInput" placeholder="Enter name">
+            </div>
+            
+        </div>
+        
+        
+    <%}%> 
+    <!-- CREATE RECORD PAGE  -->
+    <% if(locals.user ){%>
+        <a href="/records/create">
+            <div class="create-record-icon">
+                <i class="ri-add-line"></i>
+            </div>
+        </a>
+    
+        <form action="/records/delete" method="POST">
+            <button type="submit" id="bulkDeleteButton">Bulk Delete</button>
+            <div class="record-container">
+                <% records.forEach(function(record){%>
+                    <div class="record">
+                        <ul>
+                            <input type="hidden" name="recordIds" value="">
+                            <input type="checkbox" name="recordIds" value="<%= record._id %>" required>
+                            <a id="record-name" href="/records/record/<%= record._id %>"><h2>Name:- <%= record.name %></h2></a>
+                            <p>Description:- <%= record.description %></p>
+                            <p>Category:- <%= record.category %></p>
+                            Status:- <span class="status"><%= record.status %></span><br>
+                        </ul>
+                    </div>
+                <%})%>
+            </div>
+        </form>
+    <%}else{%>
+        <h1 class="signup">Sign up <a href="/users/sign-up">Here</a></h1>
+    <%}%>
+    <script src="/javascript/status.js"></script>
+    <script src="/javascript/bulkDelete.js"></script>
